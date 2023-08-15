@@ -1,13 +1,13 @@
 // What's hard?
 
-// x Everything - how do we separate it out
-// x Order: complex conditional logic - break down all the ifs
+// x Everything - how do we separate it out <- The zeroth hard part (I'm zero indexing my count of "hard parts", because I know about arrays :) 
+// x Order: complex conditional logic - break down all the ifs <- The first hard part
 // x Employee digit numbers - how do we get what we want out of nested data, so we can use it in our ifs
 // x Do we need an accumulator?  Temporarily storing data.
-// buisness logic: Understanding the output format, what does it look like: what is all this stuff?  How should it be formatted?
+// x Understanding the output format, what does it look like: what is all this stuff?  How should it be formatted?  <- The second hard part
+//    We call this "Business logic".  If you like this, backend development may be your jam.
 // x How do we ask for help?
 // x if vs else vs else if
-
 
 // THE PLAN
 
@@ -120,8 +120,9 @@ for (let employee of employees) {
 function calculateIndividualEmployeeBonus(employee) {
 
   console.log(employee);
-  // goal is turn this:
 
+  // goal is turn this:
+  // employee = 
   //  {
   //   name: 'Atticus',
   //   employeeNumber: '2465498405',
@@ -129,6 +130,16 @@ function calculateIndividualEmployeeBonus(employee) {
   //   reviewRating: 3
   // }
 
+  // into this
+  // bonusData =
+  //  {
+  //   name: same as name input,
+  //   bonusPercentage: calculate this, see blow,
+  //   totalCompensation: base annual + bonus,
+  //   totalBonus: should be the employee's total bonus rounded to the nearest dollar,
+  // }
+
+  // accumulator
   let bonusPercentage = 0;
 
   // if vs else if vs else
@@ -151,7 +162,6 @@ function calculateIndividualEmployeeBonus(employee) {
   }
 
 
-
   // If their employee number is 4 digits long and should receive an additional 5%.
   if (employee.employeeNumber.length === 4) {
     bonusPercentage += 0.05
@@ -169,17 +179,10 @@ function calculateIndividualEmployeeBonus(employee) {
     bonusPercentage = 0;
   }
 
-
-  // into this
-
-  //  {
-  //   name: same as name input,
-  //   bonusPercentage: calculate this, see blow,
-  //   totalCompensation: base annual + bonus,
-  //   totalBonus: should be the employee's total bonus rounded to the nearest dollar,
-  // }
-
   let bonus = bonusPercentage * parseInt(employee.annualSalary);
+
+  // Note, This is tricky, because we needed to use bonusPercentage to calculate bonus.
+  // Then we use bonus to calculate totalCompensation.
 
   let bonusData = {
     name: employee.name,
@@ -190,13 +193,6 @@ function calculateIndividualEmployeeBonus(employee) {
 
   return bonusData;
 }
-// function output
-//  {
-//   name: same as name input,
-//   bonusPercentage: calculate this, see blow,
-//   totalCompensation: base annual + bonus,
-//   totalBonus: should be the employee's total bonus rounded to the nearest dollar,
-// }
 
 let testEmployee = {
   name: 'Atticus',
