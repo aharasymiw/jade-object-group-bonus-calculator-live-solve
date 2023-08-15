@@ -102,7 +102,7 @@ for (let employee of employees) {
 
 
   let employeeBonusData = calculateIndividualEmployeeBonus(employee);
-  // console.log(`employeeBonusData for ${employee.name}: `, employeeBonusData);
+  console.log(`employeeBonusData for ${employee.name}: `, employeeBonusData);
 
 }
 
@@ -119,7 +119,7 @@ for (let employee of employees) {
 // }
 function calculateIndividualEmployeeBonus(employee) {
 
-  console.log(employee);
+  // console.log(employee);
 
   // goal is turn this:
   // employee = 
@@ -167,7 +167,7 @@ function calculateIndividualEmployeeBonus(employee) {
     bonusPercentage += 0.05
   }
   // However, if their annual income is greater than $65,000, they should have their bonus adjusted down 1%.
-  if (parseInt(employee.annualSalary) > 6500) {
+  if (parseInt(employee.annualSalary) > 65000) {
     bonusPercentage -= 0.01;
   }
   // No bonus can be above 13%
